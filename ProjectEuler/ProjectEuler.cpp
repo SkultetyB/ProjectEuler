@@ -12,13 +12,19 @@ class Vector
 int main()
 {
     int sum = 0;
-    for (int i = 0; i < 1000; i++)
+    int current = 8;
+    int prev = 5;
+    int temp;
+    while (current <= 4000000)
     {
-        if (i % 3 == 0 || i % 5 == 0)
+        if (current % 2 == 0)
         {
-            sum += i;
+            sum += current;
         }
+        temp = prev;
+        prev = current;
+        current += temp;
     }
 
-    std::cout << sum;
+    std::cout << sum + 2;
 }
