@@ -30,21 +30,11 @@ bool isCuriousNumber(long long x)
 
 int main() 
 {
-	int  factorials[9];
-	int j = 1;
-	for (int i = 0; i < 9; i++)
-	{
-		factorials[i] = factorial(j);
-		//std::cout << factorial(j)<<"\n";
-		j++;
-	}
-	
 	long long largest=0;
 	std::vector<long long> list;
 
 	for (int i = 3; i < 1000000; i++)
 	{
-	
 		if (isCuriousNumber(i))
 		{
 			std::cout << i<<"\n";
