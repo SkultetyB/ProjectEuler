@@ -4,25 +4,23 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 
 
 int main()
 {
-	std::vector<int> list{ 1,2,3,2,5,7,2,3,11,13,2,17,19};
-	long long num{1};
-	for (int i = 0; i < list.size(); i++)
+	long long a = 0;
+	long long b = 0;
+	for (int i = 1; i < 101; i++)
 	{
-		num *= list[i];	
-	}
-	if (num % 20 == 0)
-	{
-		std::cout << "good" << "\n";
-	}
-	else
-	{
-		std::cout << "bad" << "\n";
-	}
+		a += pow(i,2);
+		b += i;
 
-	std::cout << num;
+	}
+	b = pow(b,2);
+	std::cout << a<<"\n";
+	std::cout << b << "\n";
+
+	std::cout << b - a;
 }
  
