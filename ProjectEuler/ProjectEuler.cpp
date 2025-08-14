@@ -14,7 +14,7 @@ long long factorial(long long x)
 	return num;	
 }
 
-long long sumFactorialOfDigits(int x)
+long long sumFactorialsOfDigits(int x)
 {
 	std::string s = std::to_string(x);
 	long long sum{0};
@@ -24,7 +24,7 @@ long long sumFactorialOfDigits(int x)
 
 bool isCuriousNumber(long long x)
 {
-	long long y = sumFactorialOfDigits(x);
+	long long y = sumFactorialsOfDigits(x);
 	return x == y;
 }
 
