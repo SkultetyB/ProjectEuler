@@ -23,17 +23,20 @@ bool isPalindrom(int x)
 int main()
 {
 	std::vector<int> list;
+	int current;
 	for (int i = 100; i < 1000; i++)
 	{
-
 		for (int j = 100; j < 1000; j++)
 		{
-			
-			if (isPalindrom(i*j) ==true)
+			current = i * j;
+			if (current > 90000)
 			{
-				std::cout << i*j << i << j << "\n";
-				list.push_back(i * j);
-			}
+				if (isPalindrom(i * j) == true)
+				{
+					std::cout << current << "\n";
+					list.push_back(current);
+				}
+			}			
 		}
 	}
 	int largest = 0;
