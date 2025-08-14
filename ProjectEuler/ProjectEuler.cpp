@@ -6,30 +6,56 @@
 #include <vector>
 #include <cmath>
 
-bool isPrime(long long x) {
-	if (x < 2) return false;
-	if (x % 2 == 0) return x == 2;
-	for (long long d = 3; d <= x / d; d += 2) {
-		if (x % d == 0) return false;
-	}
-	return true;
+
+long long factorial(long long x)
+{
+	long long num = 1;
+	for (int i = 1; i <= x; i++) num *= i;
+	return num;	
 }
 
+long long sumFactorialOfDigits(int x)
+{
+	std::string s = std::to_string(x);
+	long long sum{0};
+	for (int i = 0; i < s.size(); i++) sum += factorial(s[i]-'0');
+	return sum;
+}
 
-int main() {
-    const int TARGET = 10001;
+bool isCuriousNumber(long long x)
+{
+	long long y = sumFactorialOfDigits(x);
+	return x == y;
+}
 
-    long long last = 2;     // we already count 2
-    int primeCounter = 1;   // 2 is the first prime
-    long long candidate = 3;
+int main() 
+{
+	int  factorials[9];
+	int j = 1;
+	for (int i = 0; i < 9; i++)
+	{
+		factorials[i] = factorial(j);
+		//std::cout << factorial(j)<<"\n";
+		j++;
+	}
+	
+	long long largest=0;
+	std::vector<long long> list;
 
-    while (primeCounter < TARGET) {
-        if (isPrime(candidate)) {
-            last = candidate;
-            ++primeCounter;
-        }
-        candidate += 2; // next odd
-    }
+	for (int i = 3; i < 1000000; i++)
+	{
+	
+		if (isCuriousNumber(i))
+		{
+			std::cout << i<<"\n";
+			list.push_back(i);
+		}
+	}
+	int sum{0};
+	for (int i = 0; i < list.size(); i++)
+	{
+		sum += list[i];
+	}
+	std::cout << sum;
 
-    std::cout << last << "\n"; // 104743
 }
