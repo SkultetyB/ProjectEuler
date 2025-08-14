@@ -6,21 +6,30 @@
 #include <vector>
 #include <cmath>
 
-
-int main()
-{
-	long long a = 0;
-	long long b = 0;
-	for (int i = 1; i < 101; i++)
-	{
-		a += pow(i,2);
-		b += i;
-
+bool isPrime(long long x) {
+	if (x < 2) return false;
+	if (x % 2 == 0) return x == 2;
+	for (long long d = 3; d <= x / d; d += 2) {
+		if (x % d == 0) return false;
 	}
-	b = pow(b,2);
-	std::cout << a<<"\n";
-	std::cout << b << "\n";
-
-	std::cout << b - a;
+	return true;
 }
- 
+
+
+int main() {
+    const int TARGET = 10001;
+
+    long long last = 2;     // we already count 2
+    int primeCounter = 1;   // 2 is the first prime
+    long long candidate = 3;
+
+    while (primeCounter < TARGET) {
+        if (isPrime(candidate)) {
+            last = candidate;
+            ++primeCounter;
+        }
+        candidate += 2; // next odd
+    }
+
+    std::cout << last << "\n"; // 104743
+}
