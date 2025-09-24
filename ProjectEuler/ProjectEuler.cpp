@@ -30,7 +30,7 @@ const std::string baseString =	"731671765313306249192251196744265747423553491949
 
 
 
-std::vector<long long> MakeListOf13DigitNumbers(const std::string& input)
+std::vector<long long>& MakeListOf13DigitNumbers(const std::string& input)
 {
 	std::vector<long long> listof_numbers;
 	std::string str = "";
@@ -48,7 +48,7 @@ std::vector<long long> MakeListOf13DigitNumbers(const std::string& input)
 	return listof_numbers;
 }
 
-std::vector<long long> FindNumbersWithZeroInThemFromList(std::vector<long long> numbers)
+std::vector<long long>& FindNumbersWithZeroInThemFromList(std::vector<long long> numbers)
 {
 	std::vector<long long> numbersToDeleteFromList;
 	for (long long number : numbers)
@@ -119,5 +119,6 @@ int main()
 	v = TurnListsElementsIntoTheProductOfTheirDigits(v);
 	std::cout << FindLargestNumberInList(v)<< std::endl;
 	
-	
+	//This does not work:
+	// std::cout <<FindLargestNumberInList( TurnListsElementsIntoTheProductOfTheirDigits(DeleteListOfNumbersFromList(FindNumbersWithZeroInThemFromList(MakeListOf13DigitNumbers(baseString)), MakeListOf13DigitNumbers(baseString))))<< std::endl;
 }
